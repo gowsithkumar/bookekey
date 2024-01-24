@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>BookSky</title>
+</head>
+
+<body>
+    <div class="playout">
+    </div>
+    <div class="textcon">
+        <form>
+            <input type="text" placeholder="Title" id="title" >
+            <input type="date" placeholder="Enter The Date" id="date">
+            <textarea placeholder="Enter The Content " id="com"></textarea>
+            <br>
+            <button id="add">Add</button>
+            <button id="cancel">Cancel</button>
+        </form>
+    </div>
+    <div class="nav">
+        <h1>Booksky</h1>
+    </div>
+    <div class="main">
+     <div class="conte">
+    <div class="container">
+        <h2>Gowsith with kala</h2>
+        <h4>12.01.2004</h4>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque obcaecati ea adipisci sit facilis veniam
+            dicta vitae unde possimus, repudiandae eligendi, recusandae voluptas suscipit dignissimos placeat. Minima
+            esse rerum tempore.</p>
+            <button onclick="fund(event)">Delete</button>
+    </div>
+</div>
+    <div class="but">
+        <button id="conadd">+</button>
+    </div>
+</div>
+<script>
+    var pay=document.querySelector(".playout")
+    var conu=document.querySelector(".textcon")
+    var butt=document.getElementById("conadd")
+    butt.addEventListener("click",  function ()
+    {
+        pay.style.display="block"
+         conu.style.display="block"
+    })
+
+
+    //add event end
+
+   
+     function fund(event)
+     {
+         event.target.parentElement.remove()
+     }
+
+
+    //cancel
+    let cancel=document.getElementById("cancel")
+    cancel.addEventListener("click",function(event){
+        event.preventDefault()
+        pay.style.display="none"
+         conu.style.display="none"
+    })
+
+         // add pope
+  
+  
+    let add=document.getElementById("add")
+    add.addEventListener("click",function(event){
+        
+        let title=document.getElementById("title").value
+    let date=document.getElementById("date").value
+    let con=document.getElementById("com").value
+    let  cont=document.querySelector(".conte")   
+ 
+        event.preventDefault()
+        let div=document.createElement("div")
+        div.setAttribute("class","container")
+        div.innerHTML=`   <h2>${title}</h2>
+        <h4>${date}</h4>
+        <p>${con}</p>
+        <button onclick="fund(event)">Delete</button>`
+        cont.append(div)
+        pay.style.display="none"
+         conu.style.display="none"
+    })
+ 
+</script>
+</body>
+
+</html>
